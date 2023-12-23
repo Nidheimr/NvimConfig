@@ -16,10 +16,11 @@ vim.o.backup = false
 vim.o.hlsearch = false
 vim.o.incsearch = true
 
-vim.opt.termguicolors = true
+vim.o.termguicolors = true
 
 vim.o.scrolloff = 4
 vim.o.signcolumn = "yes"
 
 vim.cmd("set whichwrap+=<,>,[,]")
+vim.cmd("set clipboard=unnamedplus")
 vim.cmd([[autocmd FileType * set formatoptions-=ro]])

@@ -45,7 +45,7 @@ return {
         local lsp = require("lspconfig")
 
         lsp["clangd"].setup { capabilities = capabilities }
-        lsp["cmake"].setup { capabilities = capabilities }
+        lsp["cmake"].setup { capabilities = capabilities, filetypes = { "cmake", "CMakeLists.txt" } }
         lsp["lua_ls"].setup { capabilities = capabilities }
     end
 }
