@@ -24,3 +24,5 @@ vim.o.signcolumn = "yes"
 vim.cmd("set whichwrap+=<,>,[,]")
 vim.cmd("set clipboard=unnamedplus")
 vim.cmd([[autocmd FileType * set formatoptions-=ro]])
+
+vim.keymap.set("n", "<leader>bw", ":!.\\build.bat run<CR>")
