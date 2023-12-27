@@ -25,4 +25,7 @@ vim.cmd("set whichwrap+=<,>,[,]")
 vim.cmd("set clipboard=unnamedplus")
 vim.cmd([[autocmd FileType * set formatoptions-=ro]])
 
-vim.keymap.set("n", "<leader>bw", ":!.\\build.bat run<CR>")
+vim.keymap.set("n", "<leader>bw", function()
+    local fp = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+    vim.cmd("!.\\..\\build.bat "..fp.." run")
+end)
