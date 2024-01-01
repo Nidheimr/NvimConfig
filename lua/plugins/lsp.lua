@@ -15,8 +15,9 @@ return {
     config = function()
         require("mason").setup()
 
+        local require_installed = { "clangd", "lua_ls", "cssmodules_ls", "html", "intelephense", "quick_lint_js" }
         require("mason-lspconfig").setup {
-            ensure_installed = { "clangd", "lua_ls" }
+            ensure_installed = require_installed
         }
 
         local cmp = require("cmp")
@@ -35,6 +36,7 @@ return {
             }),
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },
+                { name = "vsnip" },
                 { name = "buffer" }
             })
         }
@@ -44,8 +46,12 @@ return {
 
         local lsp = require("lspconfig")
 
-        lsp["clangd"].setup { capabilities = capabilities }
-        lsp["cmake"].setup { capabilities = capabilities, filetypes = { "cmake", "CMakeLists.txt" } }
-        lsp["lua_ls"].setup { capabilities = capabilities }
+        for k,v in pairs(require_installed) do
+            if v == "cmake" then
+                lsp[v].setup { capabilities = capabilities, filetypes = { "cmake", "CMakeLists.txt" } }
+            else
+                lsp[v].setup { capabilities = capabilities }
+            end
+        end
     end
 }
