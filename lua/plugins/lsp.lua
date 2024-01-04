@@ -15,7 +15,7 @@ return {
     config = function()
         require("mason").setup()
 
-        local require_installed = { "clangd", "lua_ls", "cssmodules_ls", "html", "intelephense", "quick_lint_js" }
+        local require_installed = { "clangd", "lua_ls", "cmake" }
         require("mason-lspconfig").setup {
             ensure_installed = require_installed
         }

@@ -1,7 +1,7 @@
 return {
-    "askfiy/killer-queen",
-    name = "killer-queen",
+    "nyoom-engineering/oxocarbon.nvim",
+    name = "oxocarbon",
     config = function()
-        vim.cmd("colorscheme killer-queen")
+        vim.cmd("colorscheme oxocarbon")
     end
 }
