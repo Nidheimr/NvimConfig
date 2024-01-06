@@ -15,7 +15,13 @@ return {
     config = function()
         require("mason").setup()
 
-        local require_installed = { "clangd", "lua_ls", "cmake" }
+        local require_installed = {
+            "clangd",
+            "lua_ls",
+            "cmake",
+            "asm_lsp",
+        }
+
         require("mason-lspconfig").setup {
             ensure_installed = require_installed
         }
